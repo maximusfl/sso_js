@@ -1,4 +1,5 @@
 import React from 'react'
+import {NavLink} from 'react-router-dom'
 
 export const Applications = ({applications}) => {
   return (
@@ -8,7 +9,23 @@ export const Applications = ({applications}) => {
         class="list-group-item application"
         key={application.id}
         >
-        {application.url}
+
+
+        <NavLink className="nav-link"
+            to={{
+              pathname: `/app/${application.url}`,
+              state: {
+                applicationUrl: application.url
+              }
+            }}
+            exact
+            >
+            <h3>{application.url}</h3>
+        </NavLink>
+
+
+
+
 
         <button
          type="button"

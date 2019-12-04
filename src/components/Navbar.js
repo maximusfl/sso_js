@@ -16,7 +16,7 @@ export const Navbar = () => (
     </li>
     <li className="nav-item">
         <NavLink className="nav-link"
-            to='addapp'
+            to='/addapp'
             exact
             >
             <h3>Add application</h3>
@@ -24,7 +24,7 @@ export const Navbar = () => (
     </li>
     <li className="nav-item">
         <NavLink className="nav-link"
-            to='allApps'
+            to='/allApps'
             exact
             >
             <h3>Applications</h3>

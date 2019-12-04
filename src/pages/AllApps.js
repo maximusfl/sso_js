@@ -1,5 +1,5 @@
 import React, {Fragment} from 'react'
-import {Form} from '../components/Form'
+
 import {Applications} from '../components/Applications'
 
 export const AllApps = () => {
@@ -9,8 +9,6 @@ export const AllApps = () => {
 
   return (
     <Fragment>
-      <Form />
-      <hr/>
       <Applications applications={applications}/>
     </Fragment>
   )

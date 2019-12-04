@@ -6,6 +6,8 @@ import {Navbar} from './components/Navbar'
 import {AllApps} from './pages/AllApps'
 import {Alert} from './components/Alert'
 import {AlertState} from './context/alert/AlertState'
+import {SingleAppPage} from './pages/SingleAppPage'
+
 
 function App() {
   return (
@@ -18,6 +20,7 @@ function App() {
           <Route path={'/'} exact component ={Home}/>
           <Route path={'/addApp'} exact component ={AddApp}/>
           <Route path={'/allApps'} exact component ={AllApps}/>
+          <Route path={'/app/:applicationUrl'} exact render={props => (<SingleAppPage {...props} />)}/>
         </Switch>
       </div>
     </BrowserRouter>
