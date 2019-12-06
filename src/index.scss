@@ -17,11 +17,25 @@ code {
 .application{
   display: flex;
   justify-content: space-between;
-  algin-items: center;
+  
 }
 
 .applicationUrl{
   display: flex;
   justify-content: space-between;
-  algin-items: center;
+  
+}
+
+.nav-item {
+  margin: 0 20px;
+}
+
+.infoTab {
+  position: absolute;
+  left: 32%;
+  transform: translate(-50%);
+  margin-top: 5%;
+  
+  
+ 
 }

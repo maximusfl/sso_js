@@ -5,7 +5,7 @@ export const Alert = () => {
   const {alert, hide} = useContext(AlertContext)
 
   if (!alert.visible){
-    return null;
+    return  null;
 }
 
   return (

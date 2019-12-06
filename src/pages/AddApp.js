@@ -1,12 +1,20 @@
 import React, {Fragment} from 'react'
 import {Form} from '../components/Form'
+import {InfoTab} from '../components/InfoTab'
+
+
+
 
 export const AddApp = () => {
   return (
-    <Fragment>
-
+    <div>
 <Form/>
 
-    </Fragment>
+<div className="infoTab">
+<InfoTab/>
+
+</div>
+
+    </div>
   )
 }

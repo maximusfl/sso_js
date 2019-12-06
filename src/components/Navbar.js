@@ -3,15 +3,15 @@ import {NavLink} from 'react-router-dom'
 
 export const Navbar = () => (
 
-<nav className ="navbar navbar-light bg-light navbar-expand-lg ">
+<nav className ="navbar navbar-dark bg-dark navbar-expand-lg ">
 
   <ul className="navbar-nav">
-    <li className="nav-item">
+    <li className="nav-item" >
         <NavLink className="nav-link"
             to='/'
             exact
             >
-            <h3>Home</h3>
+            <h5>Home</h5>
           </NavLink>
     </li>
     <li className="nav-item">
@@ -19,7 +19,7 @@ export const Navbar = () => (
             to='/addapp'
             exact
             >
-            <h3>Add application</h3>
+            <h5>Add application</h5>
         </NavLink>
     </li>
     <li className="nav-item">
@@ -27,7 +27,7 @@ export const Navbar = () => (
             to='/allApps'
             exact
             >
-            <h3>Applications</h3>
+            <h5>Applications</h5>
         </NavLink>
     </li>
   </ul>
