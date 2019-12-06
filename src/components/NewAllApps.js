@@ -6,6 +6,9 @@ import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
+import {NavLink} from 'react-router-dom'
+import Fab from '@material-ui/core/Fab';
+import AddIcon from '@material-ui/icons/Add';
 
 const StyledTableCell = withStyles(theme => ({
     head: {
@@ -51,13 +54,28 @@ export  function NewAllApps() {
     const classes = useStyles();
 
     return (
+      <div>
+
+      <Fab size="small" color="secondary" aria-label="add" className="customAddIcon" >
+          <AddIcon />
+        </Fab>
+      
       <Paper className={classes.root}>
+
+        
+
+
         <Table className={classes.table} aria-label="customized table">
           <TableHead>
             <TableRow>
               <StyledTableCell align="left">Application</StyledTableCell>
+              
               <StyledTableCell >URL</StyledTableCell>
-              <StyledTableCell align="left">Description</StyledTableCell>
+              <StyledTableCell align="left">Description
+
+                         
+              </StyledTableCell>
+             
               
             </TableRow>
           </TableHead>
@@ -65,7 +83,28 @@ export  function NewAllApps() {
             {rows.map(row => (
               <StyledTableRow key={row.name}>
                 <StyledTableCell component="th" scope="row">
-                  {row.name}
+
+
+
+                <NavLink className="nav-link"
+            to={{
+              pathname: `/app/${row.url}`,
+              state: {
+                applicationUrl: row.url
+              }
+            }}
+            exact
+            >
+        {row.name}
+        </NavLink>
+
+
+                  
+
+
+
+
+
                 </StyledTableCell>
                 <StyledTableCell >{row.url}</StyledTableCell>
                 <StyledTableCell align="left">{row.description}</StyledTableCell>
@@ -75,5 +114,7 @@ export  function NewAllApps() {
           </TableBody>
         </Table>
       </Paper>
+      </div>
     );
+   
   }
