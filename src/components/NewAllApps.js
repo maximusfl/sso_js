@@ -7,8 +7,8 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import {NavLink} from 'react-router-dom'
-import Fab from '@material-ui/core/Fab';
-import AddIcon from '@material-ui/icons/Add';
+import FormDialog from './FormDialog'
+
 
 const StyledTableCell = withStyles(theme => ({
     head: {
@@ -56,9 +56,7 @@ export  function NewAllApps() {
     return (
       <div>
 
-      <Fab size="small" color="secondary" aria-label="add" className="customAddIcon" >
-          <AddIcon />
-        </Fab>
+     
       
       <Paper className={classes.root}>
 
@@ -114,6 +112,9 @@ export  function NewAllApps() {
           </TableBody>
         </Table>
       </Paper>
+
+<FormDialog/>
+
       </div>
     );
    
