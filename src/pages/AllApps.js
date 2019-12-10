@@ -1,13 +1,11 @@
-import React, {Fragment} from 'react'
+import React, { Fragment } from 'react'
 
-import {NewAllApps} from '../components/NewAllApps'
+import { NewAllApps } from '../components/NewAllApps'
 
 export const AllApps = () => {
- 
-
   return (
     <Fragment>
-      <NewAllApps/>
+      <NewAllApps />
     </Fragment>
   )
 }

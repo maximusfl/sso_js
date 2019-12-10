@@ -1,15 +1,11 @@
-import React, {Fragment} from 'react'
+import React, { Fragment } from 'react'
 
-
-
-
-export const SingleAppPage = (props) => {
-
-console.log(props)
+export const SingleAppPage = props => {
+  console.log(props)
 
   return (
     <Fragment>
-<div>{props.location.state.applicationUrl}</div>
+      <div>{props.location.state.applicationUrl}</div>
     </Fragment>
   )
 }
