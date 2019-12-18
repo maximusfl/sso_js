@@ -9,11 +9,7 @@ export const Navbar = () => (
           <h5>Home</h5>
         </NavLink>
       </li>
-      <li className="nav-item">
-        <NavLink className="nav-link" to="/addapp" exact>
-          <h5>Add application</h5>
-        </NavLink>
-      </li>
+
       <li className="nav-item">
         <NavLink className="nav-link" to="/allApps" exact>
           <h5>Applications</h5>

@@ -32,7 +32,7 @@ export const Form = () => {
       appName: applicationName,
       description: description,
     }
-    fetch('http://localhost:8080/sso_app/newapp', {
+    fetch('http://localhost:8080/api_v1/newapp', {
       headers: {
         Accept: 'application/json',
         'Content-Type': 'application/json',

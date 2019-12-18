@@ -6,7 +6,6 @@ import TableCell from '@material-ui/core/TableCell'
 import TableHead from '@material-ui/core/TableHead'
 import TableRow from '@material-ui/core/TableRow'
 import Paper from '@material-ui/core/Paper'
-import { NavLink } from 'react-router-dom'
 
 const StyledTableCell = withStyles(theme => ({
   head: {
@@ -36,13 +35,18 @@ const useStyles = makeStyles({
   },
 })
 
-export function NewAllApps() {
+export function Roles(props) {
   const classes = useStyles()
-  const [apps, setApps] = useState([])
+  const [roles, setRoles] = useState([])
   useEffect(() => {
-    fetch('http://localhost:8080/api_v1/application')
+    fetch(
+      'http://localhost:8080/api_v1/application/' +
+        props.location.state.applicationId +
+        '/role'
+    )
       .then(response => response.json())
-      .then(data => setApps(data))
+      .then(data => setRoles(data))
+      .then(data => console.log(data))
   }, [])
 
   return (
@@ -51,33 +55,20 @@ export function NewAllApps() {
         <Table className={classes.table} aria-label="customized table">
           <TableHead>
             <TableRow>
-              <StyledTableCell align="left">Application</StyledTableCell>
-              <StyledTableCell>URL</StyledTableCell>
+              <StyledTableCell align="left">S/N</StyledTableCell>
+              <StyledTableCell>Role's name</StyledTableCell>
               <StyledTableCell align="left">Description</StyledTableCell>
             </TableRow>
           </TableHead>
           <TableBody>
-            {apps.map(app => (
-              <StyledTableRow key={app.id}>
+            {roles.map(role => (
+              <StyledTableRow key={role.id}>
                 <StyledTableCell component="th" scope="row">
-                  <NavLink
-                    className="nav-link"
-                    to={{
-                      pathname: `/application/${app.id}`,
-                      state: {
-                        applicationId: app.id,
-                        applicationUrl: app.applicationUrl,
-                        applicationName: app.applicationName,
-                      },
-                    }}
-                    exact
-                  >
-                    {app.applicationName}
-                  </NavLink>
+                  {role.id}
                 </StyledTableCell>
-                <StyledTableCell>{app.applicationUrl}</StyledTableCell>
+                <StyledTableCell>{role.roleName}</StyledTableCell>
                 <StyledTableCell align="left">
-                  {app.description}
+                  {role.roleDescription}
                 </StyledTableCell>
               </StyledTableRow>
             ))}

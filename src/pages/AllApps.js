@@ -1,11 +1,14 @@
-import React, { Fragment } from 'react'
+import React from 'react'
+import FormDialog from '../components/FormDialog'
 
 import { NewAllApps } from '../components/NewAllApps'
 
 export const AllApps = () => {
   return (
-    <Fragment>
-      <NewAllApps />
-    </Fragment>
+  <div>
+      <NewAllApps/>
+      <FormDialog/>
+      </div>
+   
   )
 }

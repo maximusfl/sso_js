@@ -1,11 +1,13 @@
-import React, { Fragment } from 'react'
+import React, { useState, useEffect } from 'react'
+import { Roles } from '../components/Roles'
 
 export const SingleAppPage = props => {
   console.log(props)
 
   return (
-    <Fragment>
-      <div>{props.location.state.applicationUrl}</div>
-    </Fragment>
+    <div>
+      <h1>{props.location.state.applicationName}</h1>
+      <Roles {...props} />
+    </div>
   )
 }

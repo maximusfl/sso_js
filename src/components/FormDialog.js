@@ -6,8 +6,6 @@ import DialogActions from '@material-ui/core/DialogActions'
 import DialogContent from '@material-ui/core/DialogContent'
 import DialogContentText from '@material-ui/core/DialogContentText'
 import DialogTitle from '@material-ui/core/DialogTitle'
-import Fab from '@material-ui/core/Fab'
-import AddIcon from '@material-ui/icons/Add'
 
 export default function FormDialog() {
   const [applicationUrl, setApplicationUrl] = useState('')
@@ -15,8 +13,6 @@ export default function FormDialog() {
   const [description, setDescription] = useState('')
 
   const [open, setOpen] = React.useState(false)
-
-  
 
   const handleClickOpen = () => {
     setOpen(true)
@@ -28,12 +24,11 @@ export default function FormDialog() {
 
   const SaveHandleButtonClick = () => {
     const data = {
-      
-      appName: applicationName,
+      applicationName: applicationName,
       description: description,
-      appUrl: applicationUrl,
+      applicationUrl: applicationUrl,
     }
-    fetch('http://localhost:8080/sso_app/application', {
+    fetch('http://localhost:8080/api_v1/application', {
       headers: {
         Accept: 'application/json',
         'Content-Type': 'application/json',
@@ -49,17 +44,18 @@ export default function FormDialog() {
   }
 
   return (
-    
     <div>
-      <Fab
-        size="small"
-        color="secondary"
-        aria-label="add"
-        className="customAddIcon"
-        onClick={handleClickOpen}
-      >
-        <AddIcon />
-      </Fab>
+      <p>
+        <Button
+          variant="contained"
+          className="customButton"
+          size="medium"
+          color="primary"
+          onClick={handleClickOpen}
+        >
+          add
+        </Button>
+      </p>
 
       <Dialog
         open={open}
@@ -71,34 +67,30 @@ export default function FormDialog() {
           <DialogContentText>
             To add new App just write url, name and description
           </DialogContentText>
+
           <TextField
             onChange={evt => setApplicationUrl(evt.target.value)}
-            autoFocus
             margin="dense"
             id="url"
             label="url"
             type="url"
             fullWidth
             autoComplete="off"
-            autofocus="true"
-            
+            autoFocus
           />
 
           <TextField
             onChange={evt => setApplicationName(evt.target.value)}
-            autoFocus
             margin="dense"
             id="name"
             label="name"
             type="text"
             fullWidth
             autoComplete="off"
-            
           />
 
           <TextField
             onChange={evt => setDescription(evt.target.value)}
-            autoFocus
             margin="dense"
             id="description"
             label="description"
