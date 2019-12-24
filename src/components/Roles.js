@@ -6,6 +6,7 @@ import TableCell from '@material-ui/core/TableCell'
 import TableHead from '@material-ui/core/TableHead'
 import TableRow from '@material-ui/core/TableRow'
 import Paper from '@material-ui/core/Paper'
+import LongMenu from './LongMenu'
 
 const StyledTableCell = withStyles(theme => ({
   head: {
@@ -36,6 +37,7 @@ const useStyles = makeStyles({
 })
 
 export function Roles(props) {
+  
   const classes = useStyles()
   const [roles, setRoles] = useState([])
   useEffect(() => {
@@ -49,6 +51,11 @@ export function Roles(props) {
       .then(data => console.log(data))
   }, [])
 
+
+
+  
+  
+
   return (
     <div>
       <Paper className={classes.root}>
@@ -58,6 +65,7 @@ export function Roles(props) {
               <StyledTableCell align="left">S/N</StyledTableCell>
               <StyledTableCell>Role's name</StyledTableCell>
               <StyledTableCell align="left">Description</StyledTableCell>
+              <StyledTableCell align="left"></StyledTableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -69,6 +77,14 @@ export function Roles(props) {
                 <StyledTableCell>{role.roleName}</StyledTableCell>
                 <StyledTableCell align="left">
                   {role.roleDescription}
+                  
+                  
+                </StyledTableCell>
+                <StyledTableCell align="left">
+                  <LongMenu                
+                  
+
+                  {...props} items={role}  />
                 </StyledTableCell>
               </StyledTableRow>
             ))}
