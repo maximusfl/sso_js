@@ -1,74 +1,71 @@
-import React from 'react'
-import IconButton from '@material-ui/core/IconButton'
-import Menu from '@material-ui/core/Menu'
-import MenuItem from '@material-ui/core/MenuItem'
-import MoreVertIcon from '@material-ui/icons/MoreVert'
-import EditRoleFormDialog from './EditRoleFormDialog'
+import React from "react";
+import IconButton from "@material-ui/core/IconButton";
+import Menu from "@material-ui/core/Menu";
+import MenuItem from "@material-ui/core/MenuItem";
+import MoreVertIcon from "@material-ui/icons/MoreVert";
 
-const options = ['Edit', 'Delete']
 
-const ITEM_HEIGHT = 48
+
+const ITEM_HEIGHT = 48;
 
 export default function LongMenu(props) {
-  const [anchorEl, setAnchorEl] = React.useState(null)
-  const open = Boolean(anchorEl)
-  let buttonValue
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const open = Boolean(anchorEl);
+  let buttonValue;
 
   const handleClick = event => {
-    setAnchorEl(event.currentTarget)
+    setAnchorEl(event.currentTarget);
+  };
+
+
+  const handleDeleteButtonClick = (event) =>{
+    handleClick(event);
+    deleteRole();
+    window.location.reload();
+    
   }
 
   const deleteRole = () => {
     fetch(
-      'http://localhost:8080/api_v1/application/' +
+      "http://localhost:8080/api_v1/application/" +
         props.location.state.applicationId +
-        '/role',
+        "/role",
       {
         headers: {
-          Accept: 'application/json',
+          Accept: "application/json",
 
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json"
         },
-        mode: 'cors',
-        credentials: 'include',
-        method: 'DELETE',
-        body: JSON.stringify(props.items.id),
+        mode: "cors",
+        credentials: "include",
+        method: "DELETE",
+        body: JSON.stringify(props.role.id)
       }
     )
-      .then(result => console.log('result', result))
-      .catch(error => console.log('error', error))
-  }
+      .then(result => console.log("result", result))
+      .catch(error => console.log("error", error));
+  };
+
+
+ const handleEditButtonClick = () =>{
+   props.setRole(props.role)
+   
+   props.onEditButtonClick()
+   handleClose();
+ }
 
   const editRole = () => {
-    const cl=true;
    
-    <EditRoleFormDialog/>
-    console.log(props.items.id)
-
-
-
-
-
-  }
+    console.log(props.role.id);
+  };
 
   const handleClose = event => {
-    setAnchorEl(null)
+    setAnchorEl(null);
 
-    try {
-      buttonValue = event.currentTarget.getElementsByClassName('ItemButtom')[0]
-        .textContent
-    } catch (err) {
-      console.error()
-    }
-    if (buttonValue === ' Edit ') {
-      editRole()
-    }
-    if (buttonValue === ' Delete ') {
-      deleteRole()
-    }
+   
 
-    window.location.reload()
-  }
+   
+  };
 
   return (
     <div>
@@ -89,16 +86,18 @@ export default function LongMenu(props) {
         PaperProps={{
           style: {
             maxHeight: ITEM_HEIGHT * 4.5,
-            width: 200,
-          },
+            width: 200
+          }
         }}
       >
-        {options.map(option => (
-          <MenuItem key={option} onClick={handleClose}>
-            <div className="ItemButtom"> {option} </div>
+      
+         <MenuItem onClick={handleDeleteButtonClick}>
+            <div> delete</div>
           </MenuItem>
-        ))}
+          <MenuItem  onClick={handleEditButtonClick}>
+            <div > edit </div>
+          </MenuItem>
       </Menu>
     </div>
-  )
+  );
 }

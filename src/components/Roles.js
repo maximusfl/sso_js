@@ -81,10 +81,7 @@ export function Roles(props) {
                   
                 </StyledTableCell>
                 <StyledTableCell align="left">
-                  <LongMenu                
-                  
-
-                  {...props} items={role}  />
+                  <LongMenu setRoles={props.setRoles} onEditButtonClick={()=>props.onEditButtonClick()} {...props} role={role}  />
                 </StyledTableCell>
               </StyledTableRow>
             ))}
