@@ -77,6 +77,7 @@ export default function RoleFormDialog(props) {
             fullWidth
             autoComplete="off"
             autoFocus
+            required
           />
 
           <TextField
@@ -87,6 +88,7 @@ export default function RoleFormDialog(props) {
             type="text"
             fullWidth
             autoComplete="off"
+            required
           />
         </DialogContent>
         <DialogActions>

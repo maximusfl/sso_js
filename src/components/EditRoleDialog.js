@@ -8,10 +8,13 @@ import DialogContent from "@material-ui/core/DialogContent";
 import DialogTitle from "@material-ui/core/DialogTitle";
 
 export default function EditRoleDialog(props) {
-  const [myRoleName, setMyRoleName] = useState("");
-  const [description, setDescription] = useState("");
+  const [myRoleName=props.role.roleName, setMyRoleName] = useState(props.role.roleName);
+  const [description=props.role.roleDescription, setDescription] = useState(props.role.roleDescription);
+
   console.log(myRoleName);
   console.log(description);
+
+
   
   
 
