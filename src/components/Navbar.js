@@ -11,8 +11,13 @@ export const Navbar = () => (
       </li>
 
       <li className="nav-item">
-        <NavLink className="nav-link" to="/allApps" exact>
+        <NavLink className="nav-link" to="/application" exact>
           <h5>Applications</h5>
+        </NavLink>
+      </li>
+      <li className="nav-item">
+        <NavLink className="nav-link" to="/user" exact>
+          <h5>Users</h5>
         </NavLink>
       </li>
     </ul>

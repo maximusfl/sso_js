@@ -37,7 +37,6 @@ const useStyles = makeStyles({
 })
 
 export function Roles(props) {
-  
   const classes = useStyles()
   const [roles, setRoles] = useState([])
   useEffect(() => {
@@ -50,11 +49,6 @@ export function Roles(props) {
       .then(data => setRoles(data))
       .then(data => console.log(data))
   }, [])
-
-
-
-  
-  
 
   return (
     <div>
@@ -77,11 +71,14 @@ export function Roles(props) {
                 <StyledTableCell>{role.roleName}</StyledTableCell>
                 <StyledTableCell align="left">
                   {role.roleDescription}
-                  
-                  
                 </StyledTableCell>
                 <StyledTableCell align="left">
-                  <LongMenu setRoles={props.setRoles} onEditButtonClick={()=>props.onEditButtonClick()} {...props} role={role}  />
+                  <LongMenu
+                    setRoles={props.setRoles}
+                    onEditButtonClick={() => props.onEditButtonClick()}
+                    {...props}
+                    role={role}
+                  />
                 </StyledTableCell>
               </StyledTableRow>
             ))}

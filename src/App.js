@@ -4,6 +4,7 @@ import { Home } from './pages/Home'
 import { Navbar } from './components/Navbar'
 import { AllApps } from './pages/AllApps'
 import { SingleAppPage } from './pages/SingleAppPage'
+import { Users } from './pages/Users'
 
 function App() {
   return (
@@ -13,9 +14,10 @@ function App() {
         <div className="container pt-4">
           <Switch>
             <Route path={'/'} exact component={Home} />
-            <Route path={'/allApps'} exact component={AllApps} />
-            <Route path={'/application/:applicationUrl'} exact render={props => <SingleAppPage {...props} />}
+            <Route path={'/application'} exact component={AllApps} />
+            <Route path={'/application/:applicationUrl'} exact render={props => <SingleAppPage {...props} />}         
             />
+             <Route path={'/user'} exact component={Users} />
           </Switch>
         </div>
       </BrowserRouter>

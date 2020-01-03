@@ -3,7 +3,7 @@ import React from 'react'
 export const Home = () => (
   <div className="jumbotron">
     <div className="container">
-      <h1 className="display-4">About SSO tehnology</h1>
+      <h1 className="display-4">About SSO technology</h1>
       <p className="lead">
         Single sign-on (SSO) is a property of access control of multiple
         related, yet independent, software systems. With this property, a user
