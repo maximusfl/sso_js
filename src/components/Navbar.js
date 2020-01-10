@@ -1,7 +1,10 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 
-export const Navbar = () => (
+export default function Navbar(props) {
+  if(props.visible){
+
+return(
   <nav className="navbar navbar-dark bg-dark navbar-expand-lg ">
     <ul className="navbar-nav">
       <li className="nav-item">
@@ -22,4 +25,6 @@ export const Navbar = () => (
       </li>
     </ul>
   </nav>
-)
+)}
+else return null;
+}
