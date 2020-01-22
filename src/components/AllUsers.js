@@ -1,14 +1,18 @@
 import React from 'react'
+import AllUsersTable from './AllUsersTable'
 
-import { NavLink } from 'react-router-dom'
+
 
 
 
 export function AllUsers() {
   
+  
   return (
+
     <div>
-     <h1>hello from AllUsers component</h1>
+     
+     <AllUsersTable/>
     </div>
   )
 }
