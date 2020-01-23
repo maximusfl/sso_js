@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useState,useEffect} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Table from '@material-ui/core/Table';
@@ -67,7 +67,7 @@ const useStyles = makeStyles({
   },
 });
 
-export default function AllUsersTable() {
+export default function AppUsersTable(props) {
   const classes = useStyles();
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
@@ -80,6 +80,17 @@ export default function AllUsersTable() {
     setRowsPerPage(+event.target.value);
     setPage(0);
   };
+
+  console.log("111",props)
+
+  const [users, setUsers] = useState([])
+  useEffect(() => {
+    fetch('http://localhost:8080/api_v1/application/'+props.location.applicationId+'/user')
+      .then(response => response.json())
+      .then(data => setUsers(data))
+      .catch(error => console.log('error: '+ error))
+  }, [])
+
 
   return (
     <Paper className={classes.root}>
