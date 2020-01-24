@@ -16,9 +16,13 @@ export const SingleAppPage = props => {
         {props.location.state.applicationName}
         <Link
           to={{
-            pathname: '/app-users',
-            applicationId: props.location.state.applicationId,
-          }}
+            pathname: `/application/${props.location.state.applicationId}/user`,
+            state: {
+              applicationId: props.location.state.applicationId,
+              applicationUrl: props.location.state.applicationUrl,
+              applicationName: props.location.state.applicationName
+            
+          }}}
         >
           <ContainedButtons />
         </Link>

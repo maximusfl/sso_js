@@ -7,6 +7,8 @@ import { SingleAppPage } from './pages/SingleAppPage'
 import { Users } from './pages/Users'
 import  SignUp  from './components/SignUp'
 import { AppUsers } from './components/AppUsers'
+import SingleUserPage  from './pages/SingleUserPage'
+
 
 
 function App() {
@@ -27,7 +29,8 @@ const [visible, setVisible]=React.useState(true)
           <Route path={'/application/:applicationUrl'} exact render={props => <SingleAppPage {...props} />}
           />
           <Route path={'/user'} exact component={Users} />
-          <Route path={'/app-users'} component= {AppUsers}/>
+          <Route path={'/application/:applicationId/user'} exact component={AppUsers}/>
+          <Route path={'/application/:applicationId/user/:id'}component={SingleUserPage}/>
         </Switch>
       </div>
     </BrowserRouter>
