@@ -95,7 +95,11 @@ export default function AppUsersTable(props) {
                           applicationId: props.location.state.applicationId,
                           applicationUrl: props.location.state.applicationUrl,
                           applicationName: props.location.state.applicationName,
-                          userId: user.id
+                          userId: user.id,
+                          name: user.name,
+                          login: user.login,
+                          password: user.password,
+                          email: user.email
                         
                       }}}>{value} </Link>                         
                           

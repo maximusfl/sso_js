@@ -1,13 +1,22 @@
 import React from 'react'
+import SingleUserTable from './SingleUserTable'
+import SingleUserRolesTable from './SingleUserRolesTable'
+
 
 
 export default function SingleUser(props){
-    console.log('single user component'+ props)
+    
+    console.log(props)
 
 return(
     <div>
+      
+<SingleUserTable {...props}/>
 
-        hello from single user component
+
+
+<SingleUserRolesTable {...props}/>
+
     </div>
 )
 
