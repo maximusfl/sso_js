@@ -46,7 +46,9 @@ export default function SingleUserRolesTable(props) {
       .then(data => setApplications(data))
       .then(data => console.log(data))
   }, [])
+  console.log("applications: ")
   console.log(applications)
+  applications.map(app =>(console.log(app.roleName)))
 
   
 
@@ -69,7 +71,7 @@ export default function SingleUserRolesTable(props) {
 
 
 {applications.map(row => (    
-      <ExpansionPanel expanded={expanded === 'panel1'} onChange={handleChange('panel1')} key={row.name}>
+      <ExpansionPanel expanded={expanded === 'panel'+row.id} onChange={handleChange('panel'+row.id)} key={row.id}>
         <ExpansionPanelSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel1bh-content"

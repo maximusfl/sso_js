@@ -38,9 +38,9 @@ export default function ExpansionPanelTableRoles(props) {
       
         <TableBody>
           {rows.map(row => (
-            <TableRow hover key={row.name}>
+            <TableRow hover key={row.id}>
               <TableCell component="th" scope="row">
-                {row.name}
+                {row.id}
               </TableCell>
               <TableCell align="right">{row.calories}</TableCell>
               
