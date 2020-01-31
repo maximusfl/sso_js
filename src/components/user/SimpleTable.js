@@ -10,8 +10,9 @@ import Paper from '@material-ui/core/Paper'
 import { useState } from 'react'
 import IconButton from '@material-ui/core/IconButton'
 import DeleteIcon from '@material-ui/icons/Delete'
-import AddIcon from '@material-ui/icons/Add'
-import Fab from '@material-ui/core/Fab';
+
+import Fab from '@material-ui/core/Fab'
+import FormDialog from './FormDialog'
 
 const useStyles = makeStyles({
   table: {
@@ -38,6 +39,31 @@ export default function SimpleTable(props) {
       .then(data => console.log(data))
   }, [])
 
+  const handleDelete = id => {
+    fetch(
+      'http://localhost:8080/api_v1/application/' +
+        props.location.state.applicationId +
+        '/user/' +
+        props.location.state.userId +
+        '/role/' +
+        id,
+      {
+        headers: {
+          Accept: 'application/json',
+
+          'Content-Type': 'application/json',
+        },
+        mode: 'cors',
+        credentials: 'include',
+        method: 'DELETE',
+      }
+    )
+      .then(result => console.log('result', result))
+      .catch(error => console.log('error', error))
+
+    window.location.reload()
+  }
+
   return (
     <TableContainer component={Paper}>
       <Table className={classes.table} aria-label="simple table">
@@ -46,9 +72,9 @@ export default function SimpleTable(props) {
             <TableCell align="right">Role</TableCell>
             <TableCell align="right">Description</TableCell>
             <TableCell align="right">
-              <Fab color="primary" aria-label="add" size="small"
-              >
-                <AddIcon />
+              <Fab color="primary" aria-label="add" size="small">
+              
+                <FormDialog {...props}/>
               </Fab>
             </TableCell>
           </TableRow>
@@ -60,7 +86,7 @@ export default function SimpleTable(props) {
               <TableCell align="right">{row.roleDescription}</TableCell>
               <TableCell align="right">
                 <IconButton aria-label="delete">
-                  <DeleteIcon />
+                  <DeleteIcon onClick={() => handleDelete(row.id)} />
                 </IconButton>
               </TableCell>
             </TableRow>
