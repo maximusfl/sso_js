@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState} from "react";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 import Dialog from "@material-ui/core/Dialog";
@@ -8,17 +8,15 @@ import DialogContent from "@material-ui/core/DialogContent";
 import DialogTitle from "@material-ui/core/DialogTitle";
 
 export default function EditRoleDialog(props) {
-  const [myRoleName=props.role.roleName, setMyRoleName] = useState(props.role.roleName);
-  const [description=props.role.roleDescription, setDescription] = useState(props.role.roleDescription);
-
-  console.log(myRoleName);
-  console.log(description);
-
-
+  const [myRoleName = props.role.roleName, setMyRoleName] = useState(
+    props.role.roleName
+  );
+  const [description = props.role.roleDescription, setDescription] = useState(
+    props.role.roleDescription
+  );
 
 
   const SaveHandleButtonClick = () => {
-    
     const data = {
       id: props.role.id,
       roleName: myRoleName,
@@ -27,22 +25,25 @@ export default function EditRoleDialog(props) {
         id: props.role.application.id
       }
     };
-    fetch( "http://localhost:8080/api_v1/application/" +
-    props.role.application.id +
-    "/role", {
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-        mode: "cors"
-      },
-      credentials: "include",
-      method: "PUT",
-      body: JSON.stringify(data)
-    })
+    fetch(
+      "http://localhost:8080/api_v1/application/" +
+        props.role.application.id +
+        "/role",
+      {
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+          mode: "cors"
+        },
+        credentials: "include",
+        method: "PUT",
+        body: JSON.stringify(data)
+      }
+    )
       .then(result => console.log("result", result))
       .catch(error => console.log("error", error));
     handleClose();
-    window.location.reload()
+    window.location.reload();
   };
 
   const handleClose = () => {

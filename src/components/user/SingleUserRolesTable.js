@@ -30,10 +30,7 @@ export default function SingleUserRolesTable(props) {
     setExpanded(isExpanded ? panel : false);
   };
 
-  console.log("props from single user roles tadble");
-  console.log(props)
-
-  const [applications, setApplications] = useState([])
+   const [applications, setApplications] = useState([])
   useEffect(() => {
     fetch(
       'http://localhost:8080/api_v1/application/' +
@@ -44,10 +41,8 @@ export default function SingleUserRolesTable(props) {
     )
       .then(response => response.json())
       .then(data => setApplications(data))
-      .then(data => console.log(data))
-  }, [])
-  console.log("applications: ")
-  console.log(applications)
+        }, [])
+ 
   applications.map(app =>(console.log(app.roleName)))
 
   

@@ -49,9 +49,7 @@ export default function LongMenu(props) {
     handleClose()
   }
 
-  const editRole = () => {
-    console.log(props.role.id)
-  }
+  
 
   const handleClose = event => {
     setAnchorEl(null)

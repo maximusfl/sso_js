@@ -7,8 +7,7 @@ import { Link } from 'react-router-dom'
 export const SingleAppPage = props => {
   const [isEditModalOpened, setIsEditModalOpened] = useState(false)
   const [role, setRole] = useState([])
-  console.log(props)
-  console.log(111)
+
 
   return (
     <div>

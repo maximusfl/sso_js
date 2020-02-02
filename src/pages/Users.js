@@ -1,13 +1,11 @@
-import React from 'react'
+import React from "react";
 
-
-import { AllUsers } from '../components/AllUsers'
+import { AllUsers } from "../components/AllUsers";
 
 export const Users = () => {
   return (
-  <div>
-      <AllUsers/>    
-  </div>
-   
-  )
-}
+    <div>
+      <AllUsers />
+    </div>
+  );
+};
