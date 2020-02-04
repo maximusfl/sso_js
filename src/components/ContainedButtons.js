@@ -1,7 +1,7 @@
-import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import Button from '@material-ui/core/Button';
-import PeopleOutlineIcon from '@material-ui/icons/PeopleOutline';
+import React from 'react'
+import { makeStyles } from '@material-ui/core/styles'
+import Button from '@material-ui/core/Button'
+import PeopleOutlineIcon from '@material-ui/icons/PeopleOutline'
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -9,14 +9,16 @@ const useStyles = makeStyles(theme => ({
       margin: theme.spacing(1),
     },
   },
-}));
+}))
 
 export default function ContainedButtons() {
-  const classes = useStyles();
+  const classes = useStyles()
 
   return (
     <div className={classes.root}>
-<Button variant="contained"><PeopleOutlineIcon></PeopleOutlineIcon></Button>
+      <Button variant="contained">
+        <PeopleOutlineIcon></PeopleOutlineIcon>
+      </Button>
     </div>
-  );
+  )
 }

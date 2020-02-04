@@ -1,67 +1,67 @@
-import React, { useEffect } from "react";
-import { makeStyles } from "@material-ui/core/styles";
-import Table from "@material-ui/core/Table";
-import TableBody from "@material-ui/core/TableBody";
-import TableCell from "@material-ui/core/TableCell";
-import TableContainer from "@material-ui/core/TableContainer";
-import TableHead from "@material-ui/core/TableHead";
-import TableRow from "@material-ui/core/TableRow";
-import Paper from "@material-ui/core/Paper";
-import { useState } from "react";
+import React, { useEffect } from 'react'
+import { makeStyles } from '@material-ui/core/styles'
+import Table from '@material-ui/core/Table'
+import TableBody from '@material-ui/core/TableBody'
+import TableCell from '@material-ui/core/TableCell'
+import TableContainer from '@material-ui/core/TableContainer'
+import TableHead from '@material-ui/core/TableHead'
+import TableRow from '@material-ui/core/TableRow'
+import Paper from '@material-ui/core/Paper'
+import { useState } from 'react'
 
-import DeleteIcon from "@material-ui/icons/Delete";
+import DeleteIcon from '@material-ui/icons/Delete'
 
-import Fab from "@material-ui/core/Fab";
-import FormDialog from "./FormDialog";
+import Fab from '@material-ui/core/Fab'
+import FormDialog from './FormDialog'
 
 const useStyles = makeStyles({
   table: {
-    minWidth: 700
+    minWidth: 700,
   },
   header: {
-    backgroundColor: "Silver"
-  }
-});
+    backgroundColor: 'Silver',
+  },
+})
 
 export default function SimpleTable(props) {
-  const classes = useStyles();
-  const [applications, setApplications] = useState([]);
+  const classes = useStyles()
+  const [applications, setApplications] = useState([])
   useEffect(() => {
     fetch(
-      "http://localhost:8080/api_v1/application/" +
+      'http://localhost:8080/api_v1/application/' +
         props.location.state.applicationId +
-        "/user/" +
+        '/user/' +
         props.location.state.userId +
-        "/role"
+        '/role'
     )
       .then(response => response.json())
-      .then(data => setApplications(data));
-  }, []);
+      .then(data => setApplications(data))
+  }, [])
 
-  const handleDelete =  id => {
+  const handleDelete = id => {
     fetch(
-      "http://localhost:8080/api_v1/application/" +
+      'http://localhost:8080/api_v1/application/' +
         props.location.state.applicationId +
-        "/user/" +
+        '/user/' +
         props.location.state.userId +
-        "/role/" +
+        '/role/' +
         id,
       {
         headers: {
-          Accept: "application/json",
+          Accept: 'application/json',
 
-          "Content-Type": "application/json"
+          'Content-Type': 'application/json',
         },
-        mode: "cors",
-        credentials: "include",
-        method: "DELETE"
+        mode: 'cors',
+        credentials: 'include',
+        method: 'DELETE',
       }
     )
-      .then(result => console.log("result", result))
-      .catch(error => console.log("error", error));
+      .then(result => console.log('result', result))
+      .catch(error => console.log('error', error))
 
-    window.location.reload();
-  };
+    window.location.reload()
+  }
 
   return (
     <TableContainer component={Paper}>
@@ -90,5 +90,5 @@ export default function SimpleTable(props) {
         </TableBody>
       </Table>
     </TableContainer>
-  );
+  )
 }

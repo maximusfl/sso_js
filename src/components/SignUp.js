@@ -1,15 +1,15 @@
-import React from 'react';
-import Avatar from '@material-ui/core/Avatar';
-import Button from '@material-ui/core/Button';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import TextField from '@material-ui/core/TextField';
-import Link from '@material-ui/core/Link';
-import Grid from '@material-ui/core/Grid';
-import Box from '@material-ui/core/Box';
-import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
-import Typography from '@material-ui/core/Typography';
-import { makeStyles } from '@material-ui/core/styles';
-import Container from '@material-ui/core/Container';
+import React from 'react'
+import Avatar from '@material-ui/core/Avatar'
+import Button from '@material-ui/core/Button'
+import CssBaseline from '@material-ui/core/CssBaseline'
+import TextField from '@material-ui/core/TextField'
+import Link from '@material-ui/core/Link'
+import Grid from '@material-ui/core/Grid'
+import Box from '@material-ui/core/Box'
+import LockOutlinedIcon from '@material-ui/icons/LockOutlined'
+import Typography from '@material-ui/core/Typography'
+import { makeStyles } from '@material-ui/core/styles'
+import Container from '@material-ui/core/Container'
 
 function Copyright() {
   return (
@@ -21,7 +21,7 @@ function Copyright() {
       {new Date().getFullYear()}
       {'.'}
     </Typography>
-  );
+  )
 }
 
 const useStyles = makeStyles(theme => ({
@@ -42,16 +42,12 @@ const useStyles = makeStyles(theme => ({
   submit: {
     margin: theme.spacing(3, 0, 2),
   },
-}));
-
-
+}))
 
 export default function SignUp(props) {
-    
-  const classes = useStyles();
+  const classes = useStyles()
   console.log(props)
-  props.setVisible(false);
-  
+  props.setVisible(false)
 
   return (
     <Container component="main" maxWidth="xs">
@@ -111,7 +107,6 @@ export default function SignUp(props) {
                 autoComplete="current-password"
               />
             </Grid>
-         
           </Grid>
           <Button
             type="submit"
@@ -135,5 +130,5 @@ export default function SignUp(props) {
         <Copyright />
       </Box>
     </Container>
-  );
+  )
 }

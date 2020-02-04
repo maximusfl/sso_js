@@ -9,7 +9,6 @@ const ITEM_HEIGHT = 48
 export default function LongMenu(props) {
   const [anchorEl, setAnchorEl] = React.useState(null)
   const open = Boolean(anchorEl)
- 
 
   const handleClick = event => {
     setAnchorEl(event.currentTarget)
@@ -48,8 +47,6 @@ export default function LongMenu(props) {
     props.onEditButtonClick()
     handleClose()
   }
-
-  
 
   const handleClose = event => {
     setAnchorEl(null)

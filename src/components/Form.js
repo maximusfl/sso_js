@@ -23,7 +23,7 @@ export const Form = () => {
   const [applicationUrl, setApplicationUrl] = useState('')
   const [applicationName, setApplicationName] = useState('')
   const [description, setDescription] = useState('')
-  
+
   const classes = useStyles()
 
   const handleButtonClick = () => {

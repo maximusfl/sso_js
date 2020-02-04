@@ -8,7 +8,6 @@ export const SingleAppPage = props => {
   const [isEditModalOpened, setIsEditModalOpened] = useState(false)
   const [role, setRole] = useState([])
 
-
   return (
     <div>
       <h1>
@@ -19,9 +18,9 @@ export const SingleAppPage = props => {
             state: {
               applicationId: props.location.state.applicationId,
               applicationUrl: props.location.state.applicationUrl,
-              applicationName: props.location.state.applicationName
-            
-          }}}
+              applicationName: props.location.state.applicationName,
+            },
+          }}
         >
           <ContainedButtons />
         </Link>

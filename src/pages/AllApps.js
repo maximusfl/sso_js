@@ -5,10 +5,9 @@ import { NewAllApps } from '../components/NewAllApps'
 
 export const AllApps = () => {
   return (
-  <div>
-      <NewAllApps/>
-      <FormDialog/>
-      </div>
-   
+    <div>
+      <NewAllApps />
+      <FormDialog />
+    </div>
   )
 }

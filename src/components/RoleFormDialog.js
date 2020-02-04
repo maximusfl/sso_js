@@ -7,14 +7,13 @@ import DialogContent from '@material-ui/core/DialogContent'
 
 import DialogTitle from '@material-ui/core/DialogTitle'
 
-export default function RoleFormDialog(props) { 
+export default function RoleFormDialog(props) {
   const [roleName, setRoleName] = useState('')
   const [description, setDescription] = useState('')
 
   const [open, setOpen] = React.useState(false)
 
   const handleClickOpen = () => {
-     
     setOpen(true)
   }
 
@@ -25,19 +24,23 @@ export default function RoleFormDialog(props) {
   const SaveHandleButtonClick = () => {
     const data = {
       roleName: roleName,
-      roleDescription: description
-      
+      roleDescription: description,
     }
-    fetch('http://localhost:8080/api_v1/application/'+props.location.state.applicationId +'/role', {
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
-        mode: 'no-cors'
-      },
-      credentials: 'include',
-      method: 'POST',
-      body: JSON.stringify(data),
-    })
+    fetch(
+      'http://localhost:8080/api_v1/application/' +
+        props.location.state.applicationId +
+        '/role',
+      {
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+          mode: 'no-cors',
+        },
+        credentials: 'include',
+        method: 'POST',
+        body: JSON.stringify(data),
+      }
+    )
       .then(result => console.log('result', result))
       .catch(error => console.log('error', error))
     handleClose()
@@ -63,11 +66,10 @@ export default function RoleFormDialog(props) {
         onClose={handleClose}
         aria-labelledby="form-dialog-title"
       >
-        <DialogTitle id="form-dialog-title">new {props.location.state.applicationName}'s role</DialogTitle>
+        <DialogTitle id="form-dialog-title">
+          new {props.location.state.applicationName}'s role
+        </DialogTitle>
         <DialogContent>
-         
-
-
           <TextField
             onChange={evt => setRoleName(evt.target.value)}
             margin="dense"

@@ -1,7 +1,7 @@
-import React from "react";
-import SingleUserTable from "./SingleUserTable";
-import SimpleTable from "./SimpleTable";
-import Grid from "@material-ui/core/Grid";
+import React from 'react'
+import SingleUserTable from './SingleUserTable'
+import SimpleTable from './SimpleTable'
+import Grid from '@material-ui/core/Grid'
 
 export default function SingleUser(props) {
   return (
@@ -18,10 +18,10 @@ export default function SingleUser(props) {
           <SingleUserTable {...props} />
         </Grid>
         <Grid item>
-          <h3>{props.location.state.applicationName}</h3>
+          <h3>Application: {props.location.state.applicationName}</h3>
           <SimpleTable {...props} />
         </Grid>
       </Grid>
     </div>
-  );
+  )
 }

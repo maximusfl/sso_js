@@ -47,7 +47,6 @@ export function Roles(props) {
     )
       .then(response => response.json())
       .then(data => setRoles(data))
-     
   }, [])
 
   return (
